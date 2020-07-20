@@ -1,0 +1,21 @@
+%h1 Listing calcs
+
+%table
+  %thead
+    %tr
+      %th Index
+      %th
+      %th
+      %th
+
+  %tbody
+    - @calcs.each do |calc|
+      %tr
+        %td= calc.index
+        %td= link_to 'Show', calc
+        %td= link_to 'Edit', edit_calc_path(calc)
+        %td= link_to 'Destroy', calc, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Calc', new_calc_path
