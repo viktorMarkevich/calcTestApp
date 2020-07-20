@@ -10,6 +10,7 @@ require("channels")
 
 import "bootstrap";
 import '../stylesheets/application.scss'
+import  './calc.js'
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()

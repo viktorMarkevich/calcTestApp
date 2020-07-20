@@ -11,7 +11,7 @@
     = f.text_area :result, class: 'form-control', id: 'result'
 
 .actions
-  = link_to '+ Sum', '#', class: 'btn btn-secondary'
-  = link_to '- Difference', '#', class: 'btn btn-secondary'
-  = link_to '* Multiplication', '#', class: 'btn btn-secondary'
-  = link_to '/ Division', '#', class: 'btn btn-secondary'
+  = link_to '+ Sum', '#', class: 'btn btn-secondary', data: { action: '+' }
+  = link_to '- Difference', '#', class: 'btn btn-secondary', data: { action: '-' }
+  = link_to '* Multiplication', '#', class: 'btn btn-secondary', data: { action: '*' }
+  = link_to '/ Division', '#', class: 'btn btn-secondary', data: { action: '/' }
