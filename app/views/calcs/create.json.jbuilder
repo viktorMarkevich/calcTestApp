@@ -1,4 +1,6 @@
 json.calculation do
-  json.id @calc.id
-  json.data '*******************'
+  json.Operation @calc.set_operation
+  json.Result @calc.result
+  json.ID @calc.id
+  json.Count @calc.number_of_calcs
 end
