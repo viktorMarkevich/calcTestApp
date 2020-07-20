@@ -8,10 +8,10 @@
     = f.text_field :b, class: 'form-control'
   .form-group
     = f.label :result
-    = f.text_area :result, class: 'form-control', id: 'result'
+    = f.text_area :result, class: 'form-control', id: 'result', disabled: 'disabled'
 
 .actions
-  = link_to '+ Sum', '#', class: 'btn btn-secondary', data: { action: '+' }
-  = link_to '- Difference', '#', class: 'btn btn-secondary', data: { action: '-' }
-  = link_to '* Multiplication', '#', class: 'btn btn-secondary', data: { action: '*' }
-  = link_to '/ Division', '#', class: 'btn btn-secondary', data: { action: '/' }
+  = link_to '+ Sum', '#', class: 'btn btn-secondary', data: { operator: '+' }
+  = link_to '- Difference', '#', class: 'btn btn-secondary', data: { operator: '-' }
+  = link_to '* Multiplication', '#', class: 'btn btn-secondary', data: { operator: '*' }
+  = link_to '/ Division', '#', class: 'btn btn-secondary', data: { operator: '/' }
