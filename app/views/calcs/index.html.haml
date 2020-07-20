@@ -1,21 +1,17 @@
-%h1 Listing calcs
+= form_for :calc do |f|
 
-%table
-  %thead
-    %tr
-      %th Index
-      %th
-      %th
-      %th
+  .form-group
+    = f.label :a
+    = f.text_field :a, class: 'form-control'
+  .form-group
+    = f.label :b
+    = f.text_field :b, class: 'form-control'
+  .form-group
+    = f.label :result
+    = f.text_area :result, class: 'form-control', id: 'result'
 
-  %tbody
-    - @calcs.each do |calc|
-      %tr
-        %td= calc.index
-        %td= link_to 'Show', calc
-        %td= link_to 'Edit', edit_calc_path(calc)
-        %td= link_to 'Destroy', calc, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Calc', new_calc_path
+.actions
+  = link_to '+ Sum', '#', class: 'btn btn-secondary'
+  = link_to '- Difference', '#', class: 'btn btn-secondary'
+  = link_to '* Multiplication', '#', class: 'btn btn-secondary'
+  = link_to '/ Division', '#', class: 'btn btn-secondary'
