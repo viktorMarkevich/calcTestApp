@@ -2,16 +2,16 @@
 
   .form-group
     = f.label :a
-    = f.text_field :a, class: 'form-control'
+    = f.number_field :a, class: 'form-control calc-args', data: { opposite: '#calc_b' }
   .form-group
     = f.label :b
-    = f.text_field :b, class: 'form-control'
+    = f.number_field :b, class: 'form-control calc-args', data: { opposite: '#calc_a' }
   .form-group
     = f.label :result
     = f.text_area :result, class: 'form-control', id: 'result', disabled: 'disabled'
 
 .actions
-  = link_to '+ Sum', '#', class: 'btn btn-secondary', data: { operator: '+' }
-  = link_to '- Difference', '#', class: 'btn btn-secondary', data: { operator: '-' }
-  = link_to '* Multiplication', '#', class: 'btn btn-secondary', data: { operator: '*' }
-  = link_to '/ Division', '#', class: 'btn btn-secondary', data: { operator: '/' }
+  = link_to '+ Sum', '#', class: 'btn btn-secondary btn-disabled', data: { operator: '+' }
+  = link_to '- Difference', '#', class: 'btn btn-secondary btn-disabled', data: { operator: '-' }
+  = link_to '* Multiplication', '#', class: 'btn btn-secondary btn-disabled', data: { operator: '*' }
+  = link_to '/ Division', '#', class: 'btn btn-secondary btn-disabled', data: { operator: '/' }

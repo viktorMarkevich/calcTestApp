@@ -1,9 +1,9 @@
 class Calc
   include Mongoid::Document
-  field :a, type: String
-  field :b, type: String
+  field :a, type: Integer
+  field :b, type: Integer
   field :operator, type: String
-  field :result, type: String
+  field :result, type: Integer
   field :number_of_calcs, type: Integer, default: 0
 
   before_save :manage_number_of_calcs

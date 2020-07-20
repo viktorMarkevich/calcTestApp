@@ -1,5 +1,6 @@
 $( document ).on('turbolinks:load', function() {
   clickOnAction();
+  inputValidation();
 });
 
 function clickOnAction() {
@@ -22,4 +23,23 @@ function clickOnAction() {
       }
     });
   });
+}
+
+function inputValidation() {
+  $('body').on('change keyup', '.calc-args', function(e){
+    e.preventDefault();
+    if (isInputValid(e.target) && isInputValid($(e.target).data('opposite'))) {
+      $('.btn-disabled').removeClass('btn-disabled');
+    } else {
+      $('.btn-secondary').addClass('btn-disabled');
+    }
+
+    return false;
+  });
+}
+
+function isInputValid(selector) {
+  var inputVal = parseFloat($(selector).val());
+
+  return (Number.isInteger(inputVal) && inputVal > 0 && inputVal < 100)
 }

@@ -4,3 +4,10 @@
   height: 300px;
   max-height: 300px;
 }
+
+.btn-disabled,
+.btn-disabled[disabled] {
+  opacity: .4;
+  cursor: default !important;
+  pointer-events: none;
+}
