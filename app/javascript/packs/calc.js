@@ -15,7 +15,7 @@ function clickOnAction() {
       url: '/calcs.json',
       data: { calc: { operator: operator, a: argA, b: argB } },
       success: function (response) {
-        console.log('response: ', response);
+        $('#result').val(response.result);
       },
       error: function (errorResponse) {
         console.log('errorResponse: ', errorResponse);

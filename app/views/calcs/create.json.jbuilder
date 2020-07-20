@@ -1,6 +1,1 @@
-json.calculation do
-  json.Operation @calc.set_operation
-  json.Result @calc.result
-  json.ID @calc.id
-  json.Count @calc.number_of_calcs
-end
+json.result "Operation: #{@calc.set_operation}\nResult: #{@calc.result}\nID: #{@calc.id}\nCount: #{@calc.number_of_calcs}\n#{'*' * 20}"
