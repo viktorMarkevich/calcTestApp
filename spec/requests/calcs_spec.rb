@@ -86,7 +86,7 @@ RSpec.describe 'Calcs', type: :request do
         end
 
         it 'should NOT create calc object' do
-          post '/calcs.json', params: { calc: { operator: '+', a: '1', b: '3' } }.to_json, headers: headers
+          post '/calcs.json', params: { calc: { operator: '+', a: '-1', b: '3' } }.to_json, headers: headers
 
           expect(Calc.count).to eq 0
           expect(json).to eq({ 'errors' => 'error' })

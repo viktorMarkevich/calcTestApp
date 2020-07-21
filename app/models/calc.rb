@@ -6,6 +6,8 @@ class Calc
   field :result, type: Integer
   field :number_of_calcs, type: Integer, default: 0
 
+  validates :a, :b, presence: true, inclusion: { in: 0..100 }
+
   before_save :manage_number_of_calcs
   before_save :make_calculation
 

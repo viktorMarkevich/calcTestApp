@@ -6,7 +6,7 @@ class CalcsController < ApplicationController
   def create
     @calc = Calc.find_or_initialize_by(calc_params)
     unless @calc.save
-      render json: { errors: @calc.errors }, status: 422
+      render json: { errors: 'error' }, status: 422
     end
   end
 
