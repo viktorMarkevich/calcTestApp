@@ -80,7 +80,17 @@ RSpec.describe 'Calcs', type: :request do
 
     context 'Invalid case' do
       context 'when a argument is negative' do
+        it 'should return 422 status' do
+          post '/calcs.json', params: { calc: { operator: '+', a: '-1', b: '3' } }.to_json, headers: headers
+          expect(response).to have_http_status(422)
+        end
 
+        it 'should NOT create calc object' do
+          post '/calcs.json', params: { calc: { operator: '+', a: '1', b: '3' } }.to_json, headers: headers
+
+          expect(Calc.count).to eq 0
+          expect(json).to eq({ 'errors' => 'error' })
+        end
       end
 
       context 'when a argument is bigger than 100' do
