@@ -9,7 +9,6 @@ class Calc
   before_save :manage_number_of_calcs
   before_save :make_calculation
 
-
   def manage_number_of_calcs
     self.number_of_calcs += 1 if self.id.present?
   end

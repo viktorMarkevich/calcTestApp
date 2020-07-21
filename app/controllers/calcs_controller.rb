@@ -1,7 +1,6 @@
 class CalcsController < ApplicationController
 
   def index
-    @calcs = Calc.all
   end
 
   def create
