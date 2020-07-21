@@ -36,8 +36,10 @@ function inputValidation() {
     e.preventDefault();
     if (isInputValid(e.target) && isInputValid($(e.target).data('opposite'))) {
       $('.btn-disabled').removeClass('btn-disabled');
+      $('#result').val('');
     } else {
       $('.btn-secondary').addClass('btn-disabled');
+      $('#result').val('error');
     }
 
     return false;
@@ -46,6 +48,6 @@ function inputValidation() {
 
 function isInputValid(selector) {
   var inputVal = parseFloat($(selector).val());
-
-  return (Number.isInteger(inputVal) && inputVal > 0 && inputVal < 100);
+  
+  return (Number.isInteger(inputVal) && inputVal >= 0 && inputVal < 100 && $(selector).val() !== '');
 }
