@@ -61,6 +61,21 @@ RSpec.describe 'Calcs', type: :request do
           expect(json).to eq({ 'result' => "Operation: 4 / 2\nResult: 2\nID: #{Calc.last.id}\nCount: 1\n#{'*'*20}" })
         end
       end
+
+      context 'When operation was created before' do
+        let!(:calc) { create :calc }
+
+        it 'should return 200 status' do
+          post '/calcs.json', params: { calc: { operator: '+', a: '1', b: '3' } }.to_json, headers: headers
+          expect(response).to have_http_status(200)
+        end
+
+        it 'should create a calc object and return json; COUNT IS EQ 2' do
+          post '/calcs.json', params: { calc: { operator: '+', a: '1', b: '3' } }.to_json, headers: headers
+          calc.reload
+          expect(json).to eq({ 'result' => "Operation: 1 + 3\nResult: 4\nID: #{calc.id}\nCount: 2\n#{'*'*20}" })
+        end
+      end
     end
 
     context 'Invalid case' do
