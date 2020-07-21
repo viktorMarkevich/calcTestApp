@@ -108,11 +108,31 @@ RSpec.describe 'Calcs', type: :request do
       end
 
       context 'when a argument is a float type' do
+        it 'should return 422 status' do
+          post '/calcs.json', params: { calc: { operator: '+', a: '1.1', b: '100' } }.to_json, headers: headers
+          expect(response).to have_http_status(422)
+        end
 
+        it 'should NOT create calc object' do
+          post '/calcs.json', params: { calc: { operator: '+', a: '1.1', b: '100' } }.to_json, headers: headers
+
+          expect(Calc.count).to eq 0
+          expect(json).to eq({ 'errors' => 'error' })
+        end
       end
 
       context 'when a argument is a text type' do
+        it 'should return 422 status' do
+          post '/calcs.json', params: { calc: { operator: '+', a: 'one', b: '100' } }.to_json, headers: headers
+          expect(response).to have_http_status(422)
+        end
 
+        it 'should NOT create calc object' do
+          post '/calcs.json', params: { calc: { operator: '+', a: 'one', b: '100' } }.to_json, headers: headers
+
+          expect(Calc.count).to eq 0
+          expect(json).to eq({ 'errors' => 'error' })
+        end
       end
     end
   end
