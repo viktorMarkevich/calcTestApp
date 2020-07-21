@@ -62,5 +62,23 @@ RSpec.describe 'Calcs', type: :request do
         end
       end
     end
+
+    context 'Invalid case' do
+      context 'when a argument is negative' do
+
+      end
+
+      context 'when a argument is bigger than 100' do
+
+      end
+
+      context 'when a argument is a float type' do
+
+      end
+
+      context 'when a argument is a text type' do
+
+      end
+    end
   end
 end
